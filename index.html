@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function resizeIframe(obj) {
+            let iframeDocument = obj.contentDocument || obj.contentWindow.document;
+            let file = (iframeDocument.querySelector('body').innerHTML).replaceAll('autoplay', '')
+            document.querySelector("main").insertAdjacentHTML('beforeend', `<imgWrapper>${file}</imgWrapper>`)
+            obj.parentNode.removeChild(obj)
+        }
+        function handleFiles(obj) {
+            document.querySelector('#nome').value = obj[0].name
+        }
+
+    </script>
+    <style>
+        iframe{
+            visibility: hidden;
+        }
+        main {
+            max-width: 90vw;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        img {
+            margin:5px;
+            max-width: 200px;
+            max-height: 200px;
+            z-index: 2;
+            transition: .1s;
+        }
+
+        imgWrapper{
+            height: 100%;
+        }
+
+        imgWrapper:hover > img{
+            transform: scale(1.5);
+        }
+
+        video {
+            margin:10px;
+            max-width: 200px;
+            max-height: 200px;
+        }
+
+        embed{
+            display: none;
+        }
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <form action="/" method="post" enctype="multipart/form-data" autocomplete="off">
+            <input type="file" name="image" onchange="handleFiles(this.files)">
+            <input type="text" name="nome" id='nome'>
+            <input type="submit" value="submit">
+        </form>
+    </header>
+    <main>
