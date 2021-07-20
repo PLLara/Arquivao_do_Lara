@@ -116,7 +116,7 @@ function handleInitialRequest(req, res) {
                     let arquivoFinal = `${nome}.${ext}`
                     let tmpLocation = files["image"]["path"]
                     console.log(`File -> ${arquivoFinal}`)
-                    fs.copy(tmpLocation, `./image/${arquivoFinal}`, err => {
+                    fs.copyFile(tmpLocation, `./image/${arquivoFinal}`, err => {
                         console.log(err)
                         res.end("")
                         return
