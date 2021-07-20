@@ -30,10 +30,15 @@ function handleInitialRequest(req, res) {
                                 res.write(`
                                     <iframe frameborder="0" scrolling="no" onload="resizeIframe(this)" src="./image/${file}">file</iframe>`)
                             })
+                            res.end(`</main>
+                            </body>
+                            </html>${req.connection.remoteAddress}`)
+                        }else{
+                            res.end(`</main>
+                            </body>
+                            </html>${req.connection.remoteAddress}`)
                         }
-                        res.end(`</main>
-                        </body>
-                        </html>${req.connection.remoteAddress}`)
+
                     })
                 })
             }
