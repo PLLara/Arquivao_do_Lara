@@ -117,7 +117,8 @@ function handleInitialRequest(req, res) {
                     let tmpLocation = files["image"]["path"]
                     console.log(`File -> ${arquivoFinal}`)
                     fs.rename(tmpLocation, `./image/${arquivoFinal}`, err => {
-                        res.end(err)
+                        console.log(err)
+                        res.end("")
                         return
                     })
                     res.writeHead(301, { "Location": "/" })
