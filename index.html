@@ -19,51 +19,65 @@
 
     </script>
     <style>
-        iframe{
+        iframe {
             visibility: hidden;
         }
+
         main {
             max-width: 90vw;
             margin: 0 auto;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
+            justify-content: center;
             flex-wrap: wrap;
         }
 
         img {
-            margin:5px;
+            margin: 5px;
             max-width: 200px;
             max-height: 200px;
             z-index: 2;
             transition: .1s;
         }
 
-        imgWrapper{
+        imgWrapper {
             height: 100%;
         }
 
-        imgWrapper:hover > img{
+        imgWrapper:hover>img {
             transform: scale(1.5);
         }
 
         video {
-            margin:10px;
+            margin: 10px;
             max-width: 200px;
             max-height: 200px;
         }
 
-        embed{
+        embed {
             display: none;
         }
-        header{
+
+        header {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        form{
+
+        form {
             display: flex;
             align-items: center;
             flex-direction: column;
+        }
+
+        @media only screen and (max-width: 500px) {
+            img {
+                margin: 5px;
+                max-width: 200px;
+                max-height: 200px;
+                z-index: 2;
+                transition: .1s;
+            }
         }
     </style>
 </head>
